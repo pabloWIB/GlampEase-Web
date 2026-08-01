@@ -1,0 +1,234 @@
+/* ==========================================================================
+   base.css — variables, reset, tipografía
+   ========================================================================== */
+
+/* --- Variables ---------------------------------------------------------- */
+
+:root {
+  /* Color. La paleta sale del propio sitio: el durazno del fondo original
+     (#f4a88e), el gris de los botones (#323232) y el blanco de la mitad
+     derecha de la composición. */
+  --color-fondo: #ffffff;
+  --color-acento: #f4a88e;
+  --color-acento-claro: #fbdfd3;
+  --color-texto: #1c1c1c;
+  --color-texto-suave: #3f3b38; /* 5.7:1 sobre el durazno, 11:1 sobre blanco */
+  --color-oscuro: #323232;
+  --color-oscuro-hover: #101010;
+  --color-borde: #e2dad5;
+  --color-error: #9b2c20;
+
+  /* Tipografía */
+  --fuente-titulo: "Judson", Georgia, "Times New Roman", serif;
+  --fuente-texto: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+
+  --texto-xs: 0.75rem;    /* 12px */
+  --texto-sm: 0.875rem;   /* 14px */
+  --texto-base: 1rem;     /* 16px */
+  --texto-md: 1.125rem;   /* 18px */
+  --texto-lg: 1.375rem;   /* 22px */
+  --texto-xl: 1.75rem;    /* 28px */
+  --texto-2xl: 2.25rem;   /* 36px */
+  --texto-3xl: 3rem;      /* 48px */
+
+  --interlineado-ajustado: 1.15;
+  --interlineado-texto: 1.65;
+  --medida-lectura: 68ch;
+
+  /* Espaciado: 4 · 8 · 16 · 24 · 32 · 48 · 64 · 96 */
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 1rem;
+  --espacio-4: 1.5rem;
+  --espacio-5: 2rem;
+  --espacio-6: 3rem;
+  --espacio-7: 4rem;
+  --espacio-8: 6rem;
+
+  /* Formas y movimiento */
+  --radio-sm: 2px;
+  --radio-md: 6px;
+  --sombra-sutil: 0 1px 3px rgba(28, 28, 28, 0.12);
+  --sombra-media: 0 4px 14px rgba(28, 28, 28, 0.14);
+  --transicion: 180ms ease;
+  --ancho-maximo: 1360px;
+  --alto-tactil: 44px;
+}
+
+/* --- Reset -------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Base --------------------------------------------------------------- */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-base);
+  line-height: var(--interlineado-texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  line-height: var(--interlineado-ajustado);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--texto-2xl);
+}
+
+h2 {
+  font-size: var(--texto-xl);
+}
+
+h3 {
+  font-size: var(--texto-lg);
+}
+
+p {
+  max-width: var(--medida-lectura);
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--color-acento);
+  text-underline-offset: 3px;
+  transition: color var(--transicion), text-decoration-color var(--transicion);
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-oscuro);
+  outline-offset: 3px;
+  border-radius: var(--radio-sm);
+}
+
+::selection {
+  background: var(--color-acento-claro);
+}
+
+/* --- Utilidades --------------------------------------------------------- */
+
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.salto-contenido {
+  position: absolute;
+  top: var(--espacio-2);
+  left: var(--espacio-2);
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alto-tactil);
+  padding: var(--espacio-2) var(--espacio-3);
+  background: var(--color-oscuro);
+  color: #ffffff;
+  font-size: var(--texto-sm);
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform var(--transicion);
+}
+
+.salto-contenido:focus {
+  transform: translateY(0);
+}
+
+/* --- Media queries ------------------------------------------------------ */
+
+@media (min-width: 768px) {
+  :root {
+    --texto-2xl: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --texto-2xl: 3rem;
+    --texto-3xl: 3.5rem;
+  }
+}

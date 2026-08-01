@@ -1,206 +1,125 @@
-![image](https://github.com/pabloWIB/GlampEase-Front/assets/116923433/400655bb-f42e-4354-8ada-051e28bf9ade)
-# GlampEase-Front - Glamping Reservation Platform 🏕️
+# GlampEase
 
-A modern, elegant frontend for a glamping (glamorous camping) reservation system. This project features a sophisticated design showcasing luxury outdoor accommodations with dome structures, private jacuzzis, and premium amenities.
+Static front end for a glamping site in the Reserva del Ruiz: five accommodation
+plans, a page about the reserve and a premium membership.
 
-## 🎯 What's This About?
+![Dependencies](https://img.shields.io/badge/npm%20dependencies-0-brightgreen)
+[![Hire me on Fiverr](https://img.shields.io/badge/Hire%20me%20on-Fiverr-1DBF73?style=for-the-badge&logo=fiverr&logoColor=white)](https://www.fiverr.com/pablonietop)
+![Build step](https://img.shields.io/badge/build%20step-none-lightgrey)
+![First load](https://img.shields.io/badge/first%20load-198%20KB-brightgreen)
 
-This website is designed for luxury camping enthusiasts looking to book unique outdoor experiences. It includes:
+## Description
 
-- **Glamping Reservations** - Book dome accommodations with premium amenities
-- **Couple Packages** - Romantic getaway plans with jacuzzi and private bathrooms
-- **Activity Showcase** - Hiking, campfires, catamaran rides, and more
-- **Location & Reviews** - Guest feedback and location information
-- **Image Gallery** - Beautiful photos of accommodations and activities
-- **Restaurant Integration** - Dining options and meal packages
-- **Blog Section** - Travel tips and glamping experiences
+Booking a glamping stay here is a choice between a handful of packages, not a
+search across dates and rooms. The home page reflects that: the five plans are
+numbered `01/05` through `05/05` and shown one at a time — couples, family of
+four, couples day pass, family day pass and the cabin plan — so the visitor
+compares a short list instead of filtering a catalogue.
 
-## 🛠️ Tech Stack
+Two supporting pages sit behind it: an article on the reserve, its accommodation
+and its environmental commitment, and the premium membership with its loyalty
+programme, booking flexibility and FAQ.
 
-- **HTML5** - Semantic structure and content
-- **CSS3** - Modern styling with luxury aesthetics
-- **JavaScript** - Interactive booking and gallery features
-- **Responsive Design** - Perfect on desktop, tablet, and mobile
-- **Image Carousel** - Smooth photo browsing experience
-- **Booking System Integration** - Reservation functionality
+The site is in Spanish and entirely static. Nothing is bookable from it: there
+is no availability, no calendar and no payment step. It is the presentation
+layer for a reservation system that lives elsewhere.
 
-## 📁 Project Structure
+## Tech stack
+
+| Layer | Technology | Role in project |
+|---|---|---|
+| Markup | HTML5 | Four pages, no templating |
+| Styling | CSS3 | Custom properties, flexbox and grid, mobile first |
+| Scripting | Vanilla JavaScript (ES5 syntax, classic scripts) | Mobile menu and plan carousel |
+| Images | WebP | Photography; PNG for the logo, inline SVG for icons |
+| Typography | Google Fonts | Judson for headings, Nunito Sans for body text |
+
+No framework, no bundler, no package manager, no build step. The only external
+requests are the two Google Fonts families; everything else is served from the
+repository.
+
+## Project structure
 
 ```
-GlampEase-Front/
-├── index.html          # Main homepage
-├── css/
-│   ├── style.css      # Main stylesheet
-│   ├── booking.css    # Reservation form styles
-│   ├── gallery.css    # Image gallery styles
-│   └── responsive.css # Mobile-friendly styles
-├── js/
-│   ├── main.js        # Core functionality
-│   ├── booking.js     # Reservation system
-│   ├── gallery.js     # Image carousel logic
-│   └── reviews.js     # Review display system
-├── images/
-│   ├── domes/         # Accommodation photos
-│   ├── activities/    # Activity and amenity images
-│   ├── gallery/       # General site gallery
-│   └── blog/          # Blog post images
-├── pages/
-│   ├── location.html  # Location information
-│   ├── reviews.html   # Guest reviews
-│   ├── restaurant.html # Dining options
-│   └── blog.html      # Travel blog
-└── README.md          # You're reading this!
+.
+├── index.html              # Home: the five plans
+├── la-reserva.html         # The reserve: accommodation, ecology, activities
+├── membresia.html          # Premium membership, loyalty programme and FAQ
+├── 404.html                # Not found, links back to the home page
+├── assets/
+│   ├── css/
+│   │   ├── base.css        # Custom properties, reset, typography, utilities
+│   │   ├── layout.css      # Container, header, navigation, footer
+│   │   ├── components.css  # Buttons, cards, lists, prose, FAQ
+│   │   └── pages/
+│   │       └── planes.css  # Home only: colour split and plan carousel
+│   ├── js/
+│   │   ├── main.js         # Single entry point: starts every module found
+│   │   └── modules/
+│   │       ├── menu.js     # Mobile navigation panel
+│   │       └── carrusel.js # Plan carousel
+│   └── img/
+│       ├── logo/           # Reserva del Ruiz seal, used as favicon
+│       └── content/        # Four photographs plus the Open Graph image
+├── docs/
+│   ├── auditoria.md        # Inventory of the project before the reorganisation
+│   └── cambios.md          # What changed, grouped by phase
+├── robots.txt
+└── sitemap.xml
 ```
 
-## 🚀 Getting Started (3 Easy Steps!)
+### How the JavaScript is wired
 
-1. **Download the project**
-   ```bash
-   git clone https://github.com/pabloWIB/GlampEase-Front.git
-   ```
+Modules are classic scripts, not ES modules, so the site also works when
+`index.html` is opened straight from the file system. Each module registers
+itself on the `window.GlampEase` namespace and exposes an `iniciar` function;
+`main.js` loads last and calls every `iniciar` it finds. Pages that do not need
+a module simply do not load it — `la-reserva.html` ships the menu only.
 
-2. **Open the folder**
-   - Navigate to the downloaded folder
-   - Find `index.html`
+Both features degrade without JavaScript: an inline one-liner sets
+`data-js="on"` on `<html>`, and the CSS only hides the navigation panel and the
+carousel controls when that flag is present. With scripting off, the menu is a
+plain list of links and the five plans stack vertically.
 
-3. **Launch the website**
-   - Double-click `index.html`
-   - It opens in your web browser - that's it! 🎉
+## Running it locally
 
-## 🎨 Easy Customization
+Open `index.html` in a browser — it works over `file://`.
 
-Want to make it your own? Here's how:
+For a local server, from the repository root:
 
-### Update Accommodations & Packages
-- Edit package details in `index.html`
-- Modify the "Plan pareja" (Couple's Plan) amenities
-- Replace dome and amenity photos in `images/domes/`
-- Update pricing and availability information
+```bash
+npx serve .
+```
 
-### Customize Branding & Design
-- Open `css/style.css`
-- Look for color variables (luxury earth tones work great)
-- Replace logo and brand elements
-- Adjust typography for a premium feel
+or, without Node:
 
-### Add New Features
-- Include more accommodation types
-- Add seasonal packages and promotions
-- Create virtual tours or 360° photos
-- Include weather information and packing lists
+```bash
+python -m http.server 4173
+```
 
-### Booking System Integration
-- Connect to your reservation backend
-- Add payment processing integration
-- Include availability calendar
-- Set up confirmation emails
+## Deployment
 
-## 🌐 Free Hosting Options
+Static hosting, no build command and no output directory: upload the repository
+root as it is. The absolute URLs in `sitemap.xml`, `robots.txt`, the canonical
+tags and the Open Graph tags point to `https://glampease.wib.digital`; change
+them if the site is deployed elsewhere.
 
-Deploy your glamping site for free:
+`404.html` is served automatically by hosts that look for that filename, Vercel
+and Netlify among them.
 
-### GitHub Pages (Recommended for beginners)
-1. Push your code to GitHub
-2. Go to Settings → Pages
-3. Select main branch as source
-4. Your site will be live at `username.github.io/GlampEase-Front`
+## Author
 
-### Netlify (Best for forms)
-1. Drag your project folder to [netlify.com/drop](https://netlify.com/drop)
-2. Get instant live URL
-3. Perfect for booking forms and contact pages
-
-### Vercel
-1. Connect your GitHub repo at [vercel.com](https://vercel.com)
-2. Auto-deploy on every update
-3. Excellent performance for image-heavy sites
-
-## 🏕️ Glamping Business Tips
-
-**Want better bookings?** Here's how:
-
-### Photography Strategy
-- High-quality dome interior and exterior shots
-- Golden hour photography for romantic appeal
-- Activity photos showing guests having fun
-- Drone shots of the location and surroundings
-
-### Content Strategy
-- Highlight unique amenities (jacuzzi, private bathroom)
-- Show seasonal experiences and packages
-- Include local attractions and activities
-- Create packing guides and preparation tips
-
-### User Experience
-- Make booking process simple and intuitive
-- Include detailed amenity descriptions
-- Add guest testimonials and reviews
-- Provide clear location and arrival information
-
-## 🎓 Beginner Tips
-
-**New to hospitality websites?** No worries!
-
-- **Visual First**: Lead with stunning accommodation photos
-- **Mobile Optimization**: Many bookings come from phones
-- **Clear Pricing**: Be transparent about costs and inclusions
-- **Trust Signals**: Reviews, certifications, and contact info
-
-**Helpful Resources:**
-- [MDN Web Docs](https://developer.mozilla.org) - Web development reference
-- [W3Schools](https://w3schools.com) - Beginner tutorials
-- [Glamping Inspiration](https://www.glamping.com) - Industry examples
-- [Travel Photography](https://www.lonelyplanet.com/travel-tips-and-articles/travel-photography-tips) - Photo tips
-- [Booking UX Best Practices](https://www.booking.com) - Learn from the best
-
-## 🌟 Feature Ideas
-
-**Enhance your glamping site:**
-
-### Interactive Features
-- Virtual dome tours
-- Interactive site map
-- Real-time availability calendar
-- Weather widget for planning
-
-### Content Additions
-- Guest blog posts and experiences
-- Local wildlife and nature guides
-- Stargazing information and apps
-- Eco-friendly practices showcase
-
-### Booking Enhancements
-- Group booking options
-- Add-on services (meals, activities)
-- Cancellation policy information
-- Special occasion packages
-
-## 🤝 Contributing
-
-Found a bug or have a cool idea? 
-- Open an issue on GitHub
-- Submit a pull request
-- Share your glamping industry insights!
-
-## 📧 Questions?
-
-Stuck on something? Don't hesitate to:
-- Check the browser console for errors (F12 → Console)
-- Test booking forms thoroughly
-- Ensure image galleries work smoothly
-- Ask for help in web development communities
-
-## ⚠️ Important Notes
-
-**Before going live:**
-- Test all booking functionality
-- Ensure images are optimized for web
-- Add proper SEO meta tags
-- Include contact information and policies
-- Test on various devices and browsers
+**Pablo Nieto Pérez** — [wib.digital](https://wib.digital)
+GitHub: [@pabloWIB](https://github.com/pabloWIB)
 
 ---
 
-**Happy coding and successful glamping! 🏕️✨**
+## Hire me
 
-*Remember: Great outdoor experiences start with great first impressions online. The same attention to detail applies to both hospitality and web development!*
+I build **custom internal tools, CRMs and dashboards** for small teams, and
+**conversion-focused websites** for businesses.
+
+- [Custom internal tool, CRM or dashboard](https://www.fiverr.com/pablonietop/build-a-custom-internal-app-for-your-business) — from $45
+- [Conversion-focused website](https://www.fiverr.com/pablonietop/convert-your-landing-page-design-to-code) — from $80
+- [All my services on Fiverr](https://www.fiverr.com/pablonietop)
+- [wib.digital](https://wib.digital)

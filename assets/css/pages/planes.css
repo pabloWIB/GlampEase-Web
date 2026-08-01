@@ -1,0 +1,181 @@
+/* ==========================================================================
+   pages/planes.css — portada: franja de color, entrada y carrusel de planes
+   ========================================================================== */
+
+/* --- Franja de color ---------------------------------------------------- */
+/* En móvil, la cabecera y la entrada comparten el fondo durazno. A partir de
+   1024px se recupera la composición original: columna de color al 37 % del
+   ancho, blanco el resto. Antes era un JPEG de 3856x2366 con dos colores. */
+
+.pagina-inicio .cabecera,
+.pagina-inicio .intro {
+  background: var(--color-acento);
+}
+
+/* --- Entrada ------------------------------------------------------------ */
+
+.intro {
+  padding-block: var(--espacio-4) var(--espacio-6);
+}
+
+.intro__texto {
+  margin-top: var(--espacio-3);
+  max-width: 46ch;
+  font-size: var(--texto-md);
+}
+
+/* --- Carrusel ----------------------------------------------------------- */
+
+.planes {
+  padding-bottom: var(--espacio-6);
+}
+
+/* Sin JS los controles no harían nada, así que no se muestran: los cinco
+   planes quedan uno debajo de otro y la página sigue siendo legible. */
+.planes__controles {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--espacio-5);
+}
+
+[data-js="on"] .planes__controles {
+  display: flex;
+}
+
+[data-js="on"] .plan:not(.plan--activa) {
+  display: none;
+}
+
+.control {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  min-height: var(--alto-tactil);
+  padding: var(--espacio-2);
+  color: var(--color-oscuro);
+  font-size: var(--texto-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.control__linea {
+  width: 40px;
+  height: auto;
+  transition: transform var(--transicion);
+}
+
+.control--anterior:hover .control__linea {
+  transform: translateX(-4px);
+}
+
+.control--siguiente:hover .control__linea {
+  transform: translateX(4px);
+}
+
+.control:active .control__linea {
+  transform: none;
+}
+
+/* --- Tarjeta de plan ---------------------------------------------------- */
+
+.planes__lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-7);
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.plan__figura {
+  max-width: 320px;
+}
+
+.plan__figura img {
+  width: 100%;
+  height: auto;
+  box-shadow: var(--sombra-media);
+}
+
+.plan__detalle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+}
+
+.plan__indice {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-lg);
+  letter-spacing: 0.04em;
+}
+
+.plan__galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-3);
+}
+
+.plan__galeria img {
+  width: 84px;
+  height: auto;
+  box-shadow: var(--sombra-sutil);
+}
+
+.plan__titulo {
+  font-size: var(--texto-xl);
+}
+
+/* --- Media queries ------------------------------------------------------ */
+
+@media (min-width: 480px) {
+  .plan__galeria img {
+    width: 100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .intro {
+    padding-block: var(--espacio-5) var(--espacio-7);
+  }
+
+  .plan {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--espacio-6);
+  }
+
+  .plan__figura {
+    flex: 0 0 300px;
+    max-width: 300px;
+  }
+
+  .plan__detalle {
+    flex: 1 1 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pagina-inicio {
+    background: linear-gradient(90deg, var(--color-acento) 0 37%, var(--color-fondo) 37%);
+  }
+
+  .pagina-inicio .cabecera,
+  .pagina-inicio .intro {
+    background: transparent;
+  }
+
+  .plan__figura {
+    flex-basis: 350px;
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .intro__titulo {
+    font-size: var(--texto-3xl);
+  }
+}

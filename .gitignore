@@ -1,0 +1,29 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Herramientas de compilación de CSS (Prepros, Sass)
+prepros.config
+prepros-6.config
+.sass-cache/
+*.css.map
+
+# Node, por si en el futuro se añade un servidor local o un linter
+node_modules/
+npm-debug.log*
+yarn-error.log*
+*.log
+
+# Variables de entorno
+.env
+.env.*
+
+# Salida de despliegue
+dist/
+.vercel/

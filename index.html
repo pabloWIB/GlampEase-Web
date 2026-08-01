@@ -1,368 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" data-js="off">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-	<link rel="stylesheet" href="CSS/styles.css">
-	<link rel="stylesheet" href="CSS/fonts.css">
-	<link rel="icon" type="image/x-icon" href="IMG/icon.png">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.slim.min.js"></script>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Judson:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<title>Reserva del Ruiz</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GlampEase · Glamping en domos en la Reserva del Ruiz</title>
+  <meta name="description" content="Cinco planes de glamping en la Reserva del Ruiz: domos con jacuzzi y baño privado, desayunos, fogata y senderismo ecológico, para pareja, familia o pasadía.">
+  <link rel="canonical" href="https://glampease.wib.digital/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://glampease.wib.digital/">
+  <meta property="og:title" content="GlampEase · Glamping en domos en la Reserva del Ruiz">
+  <meta property="og:description" content="Cinco planes de glamping en la Reserva del Ruiz: domos con jacuzzi y baño privado, desayunos, fogata y senderismo ecológico, para pareja, familia o pasadía.">
+  <meta property="og:image" content="https://glampease.wib.digital/assets/img/content/og-glampease.jpg">
+  <meta property="og:image:alt" content="Domo con jacuzzi en una terraza de madera durante el atardecer">
+  <link rel="icon" type="image/png" href="assets/img/logo/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/logo/reserva-del-ruiz.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Judson:wght@400;700&family=Nunito+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/planes.css">
+  <script>document.documentElement.dataset.js = "on";</script>
+  <script src="assets/js/modules/menu.js" defer></script>
+  <script src="assets/js/modules/carrusel.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pablo Nieto Pérez",
+    "url": "https://wib.digital",
+    "jobTitle": "Web Designer and Developer",
+    "sameAs": [
+      "https://www.fiverr.com/pablonietop",
+      "https://www.linkedin.com/in/pablo-nieto-perez-39a530292"
+    ]
+  }
+  </script>
 </head>
-<body>
 
-	<!-- Overlay -->
+<body class="pagina pagina-inicio">
+  <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
 
-	<div class="overlay">
-		<ol>
-			<li><a href="PAGINAS/PAGINA2/index.html">Ubicación</a></li>
-			<li><a href="PAGINAS/PAGINA3/index.html">Opiniones</a></li>
-			<li><a href="PAGINAS/PAGINA4/index.html">Imagénes</a></li>
-			<li><a href="PAGINAS/PAGINA5/index.html">Decoraciones</a></li>
-			<li><a href="PAGINAS/PAGINA6/index.html">Restaurante</a></li>
-		</ol>
-	</div>
+  <header class="cabecera">
+    <div class="contenedor cabecera__interior">
+      <a class="marca" href="index.html">
+        <img class="marca__sello" src="assets/img/logo/reserva-del-ruiz.png" width="36" height="36" alt="">
+        <span class="marca__nombre">GlampEase</span>
+      </a>
 
-	<!-- Header -->
+      <button class="nav-boton" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal" data-menu-boton>
+        <svg class="nav-boton__abrir" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path>
+        </svg>
+        <svg class="nav-boton__cerrar" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M120-240v-80h520v80H120Zm664-40L584-480l200-200 56 56-144 144 144 144-56 56ZM120-440v-80h400v80H120Zm0-200v-80h520v80H120Z"></path>
+        </svg>
+      </button>
 
-	<header>
-		<div>
-			<h1>GlampEase</h1>
-		</div>
-		<div>
-			<div>
-				<a href="PAGINAS/PAGINA2/index.html" class="active1">Ubicación</a>
-			</div>
-			<div>
-				<a href="PAGINAS/PAGINA3/index.html" class="active2">Opiniones</a>
-			</div>
-			<div>
-				<a href="PAGINAS/PAGINA4/index.html" class="active3">Imagénes</a>
-			</div>
-			<div>
-				<a href="PAGINAS/PAGINA5/index.html" class="active3">Decoraciones</a>
-			</div>
-			<div>
-				<a href="PAGINAS/PAGINA6/index.html" class="active3">Restaurante</a>
-			</div>
-			<div>
-				<a href="PAGINAS/PAGINA7/index.html" class="active3">Blog</a>
-			</div>
-		</div>
-		<div>
-			<div>
-				<img src="IMG/cart.svg" alt="Shop cart">
-			</div>
-			<div>
-				<img src="IMG/user.svg" alt="User">
-			</div>
-		</div>
-		<div class="active4">
-			<div>
-				<img src="IMG/menu.svg" alt="">
-			</div>
-			<div>
-				<img src="IMG/menuOpen.svg" alt="">
-			</div>
-		</div>
-	</header>
+      <nav class="nav" id="menu-principal" aria-label="Principal" data-menu>
+        <ul class="nav__lista">
+          <li><a class="nav__enlace" href="index.html" aria-current="page">Planes</a></li>
+          <li><a class="nav__enlace" href="la-reserva.html">La reserva</a></li>
+          <li><a class="nav__enlace" href="membresia.html">Membresía</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-	<!-- Section -->
+  <main id="contenido">
+    <section class="intro">
+      <div class="contenedor">
+        <h1 class="intro__titulo">El glamping de un millón de estrellas</h1>
+        <p class="intro__texto">Domos con jacuzzi y baño privado en la Reserva del Ruiz. Cinco planes, para una noche en pareja, un fin de semana en familia o un día completo en la montaña.</p>
+        <p><a class="boton boton--claro" href="membresia.html">Conoce la membresía</a></p>
+      </div>
+    </section>
 
-	<section>
-		<div class="buttonsSelection">
-			<a href="#carrusel" role="button" data-slide="prev">
-				<div class="imagePrevNext">
-					<img src="IMG/prevLine.svg" alt="Previous">
-				</div>
-				<div>
-					<h5>ANTERIOR</h5>
-				</div>
-			</a>
-			<a href="#carrusel" role="button" data-slide="next">
-				<div>
-					<h5>SIGUIENTE</h5>
-				</div>
-				<div class="imagePrevNext">
-					<img src="IMG/nextLine.svg" alt="Previous">
-				</div>
-			</a>
-		</div>
-	</section>
+    <section class="planes" aria-roledescription="carrusel" aria-label="Planes de alojamiento" data-carrusel>
+      <div class="contenedor">
+        <div class="planes__controles">
+          <button class="control control--anterior" type="button" data-carrusel-accion="anterior">
+            <svg class="control__linea" width="58" height="8" viewBox="0 0 58 8" aria-hidden="true" focusable="false">
+              <circle cx="3.5" cy="4" r="3.5" fill="currentColor"></circle>
+              <line x1="5.6" y1="3.9" x2="57.4" y2="3.9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></line>
+            </svg>
+            Anterior
+          </button>
+          <button class="control control--siguiente" type="button" data-carrusel-accion="siguiente">
+            Siguiente
+            <svg class="control__linea" width="58" height="7" viewBox="0 0 58 7" aria-hidden="true" focusable="false">
+              <line x1="0.6" y1="3.4" x2="52.4" y2="3.4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></line>
+              <circle cx="54.5" cy="3.5" r="3.5" fill="currentColor"></circle>
+            </svg>
+          </button>
+        </div>
 
-	<!-- Main -->
+        <ul class="planes__lista" aria-live="polite">
+          <li class="plan" role="group" aria-roledescription="diapositiva" aria-label="Plan 1 de 5" data-carrusel-diapositiva>
+            <figure class="plan__figura">
+              <img src="assets/img/content/domo-atardecer.webp" width="727" height="800" alt="Domo con jacuzzi sobre una terraza de madera, con el cielo naranja del atardecer y las montañas al fondo">
+            </figure>
+            <div class="plan__detalle">
+              <p class="plan__indice">01/05</p>
+              <ul class="plan__galeria">
+                <li><img src="assets/img/content/cielo-estrellado.webp" width="181" height="118" loading="lazy" alt="Cielo estrellado sobre las copas de los árboles de la reserva"></li>
+                <li><img src="assets/img/content/domos-ladera.webp" width="181" height="118" loading="lazy" alt="Domos blancos repartidos en la ladera verde, entre árboles"></li>
+                <li><img src="assets/img/content/interior-domo.webp" width="181" height="118" loading="lazy" alt="Interior del domo, con la cama tendida y mesas de noche a los lados"></li>
+              </ul>
+              <h2 class="plan__titulo">Plan pareja</h2>
+              <ul class="lista-marcada">
+                <li>Domo, jacuzzi y baño privado</li>
+                <li>Desayunos</li>
+                <li>Malla catamarán</li>
+                <li>Fogata</li>
+                <li>Senderismo ecológico</li>
+                <li>Parqueadero</li>
+              </ul>
+            </div>
+          </li>
 
-	<main>	
-		<div id="carrusel" class="carousel slide" data-ride="carousel">
-			<div class="carousel-inner">
+          <li class="plan" role="group" aria-roledescription="diapositiva" aria-label="Plan 2 de 5" data-carrusel-diapositiva>
+            <figure class="plan__figura">
+              <img src="assets/img/content/domo-atardecer.webp" width="727" height="800" loading="lazy" alt="Domo con jacuzzi sobre una terraza de madera, con el cielo naranja del atardecer y las montañas al fondo">
+            </figure>
+            <div class="plan__detalle">
+              <p class="plan__indice">02/05</p>
+              <ul class="plan__galeria">
+                <li><img src="assets/img/content/cielo-estrellado.webp" width="181" height="118" loading="lazy" alt="Cielo estrellado sobre las copas de los árboles de la reserva"></li>
+                <li><img src="assets/img/content/domos-ladera.webp" width="181" height="118" loading="lazy" alt="Domos blancos repartidos en la ladera verde, entre árboles"></li>
+                <li><img src="assets/img/content/interior-domo.webp" width="181" height="118" loading="lazy" alt="Interior del domo, con la cama tendida y mesas de noche a los lados"></li>
+              </ul>
+              <h2 class="plan__titulo">Plan familiar, 4 personas</h2>
+              <ul class="lista-marcada">
+                <li>Domo, jacuzzi y baño privado, con 2 camas adicionales</li>
+                <li>Desayunos</li>
+                <li>Malla catamarán</li>
+                <li>Fogata</li>
+                <li>Senderismo ecológico</li>
+                <li>Parqueadero</li>
+              </ul>
+            </div>
+          </li>
 
-				<div class="carousel-item slide1 active">
-					<div class="container">
-						<div class="uno">
-							<img src="IMG/imagen1.jpg" alt="">
-						</div>
-						<div class="dos">
-							<div>
-								<div>
-									<h3>01/05</h3>
-								</div>
-								<div>
-									<div>
-										<img src="IMG/imagen2.jpg" alt="">
-									</div>
-									<div>
-										<img src="IMG/imagen3.jpg" alt="">
-									</div>
-									<div>
-										<img src="IMG/imagen4.jpg" alt="">
-									</div>
-								</div>
-							</div>
-							<div>
-								<div>
-									<h2>Plan pareja</h2>
-									 <!--
-									<div>
-										<h5>Semana $290.000 x Noche</h5>
-										<h5>Fin de semena $350.000 x Noche 3PM - 1 PM</h5>
-									</div>
-									-->
-								</div>
-								<div>
-									<ul>
-										<li>Domo, Jacuzzi y Baño privado </li>
-										<li>Desayunos</li>
-										<li>Malla catamarán</li>
-										<li>Fogata</li>
-										<li>Senderismo ecológico</li>
-										<li>Parqueadero</li>
-									</ul>
-								</div>
-								<a href="https://google.com">RESERVAR</a>
-							</div>
-						</div>
-					</div>
-				</div>
+          <li class="plan" role="group" aria-roledescription="diapositiva" aria-label="Plan 3 de 5" data-carrusel-diapositiva>
+            <figure class="plan__figura">
+              <img src="assets/img/content/domo-atardecer.webp" width="727" height="800" loading="lazy" alt="Domo con jacuzzi sobre una terraza de madera, con el cielo naranja del atardecer y las montañas al fondo">
+            </figure>
+            <div class="plan__detalle">
+              <p class="plan__indice">03/05</p>
+              <ul class="plan__galeria">
+                <li><img src="assets/img/content/cielo-estrellado.webp" width="181" height="118" loading="lazy" alt="Cielo estrellado sobre las copas de los árboles de la reserva"></li>
+                <li><img src="assets/img/content/domos-ladera.webp" width="181" height="118" loading="lazy" alt="Domos blancos repartidos en la ladera verde, entre árboles"></li>
+                <li><img src="assets/img/content/interior-domo.webp" width="181" height="118" loading="lazy" alt="Interior del domo, con la cama tendida y mesas de noche a los lados"></li>
+              </ul>
+              <h2 class="plan__titulo">Plan pasadía en pareja</h2>
+              <ul class="lista-marcada">
+                <li>Domo, jacuzzi y baño privado</li>
+                <li>Almuerzos</li>
+                <li>Malla catamarán</li>
+                <li>Fogata</li>
+                <li>Senderismo ecológico</li>
+                <li>Parqueadero</li>
+              </ul>
+            </div>
+          </li>
 
-				<div class="carousel-item slide2">
-					<div class="container">
-						<div class="uno">
-							<img src="IMG/imagen1.jpg" alt="">
-						</div>
-						<div class="dos">
-							<div>
-								<div>
-									<h3>02/05</h3>
-								</div>
-								<div>
-									<div>
-										<img src="IMG/imagen2.jpg" alt="">
-									</div>
-									<div>
-										<img src="IMG/imagen3.jpg" alt="">
-									</div>
-									<div>
-										<img src="IMG/imagen4.jpg" alt="">
-									</div>
-								</div>
-							</div>
-							<div>
-								<div>
-									<h2>Plan familiar 4 personas</h2>
-									<!--
-									<div>
-										<h5>Semana y fin de semana $450.000 x Noche 3PM - 1 PM</h5>
-									</div>
-									-->
-								</div>
-								<ul>
-									<li>Domo, Jacuzzi y baño privado + 2 Camas adicionales</li>
-									<li>Desayunos</li>
-									<li>Malla catamarán</li>
-									<li>Fogata</li>
-									<li>Senderismo ecológico</li>
-									<li>Parqueadero</li>
-								</ul>
-								<a href="https://google.com">RESERVAR</a>
-							</div>
-						</div>
-					</div>
-				</div>
+          <li class="plan" role="group" aria-roledescription="diapositiva" aria-label="Plan 4 de 5" data-carrusel-diapositiva>
+            <figure class="plan__figura">
+              <img src="assets/img/content/domo-atardecer.webp" width="727" height="800" loading="lazy" alt="Domo con jacuzzi sobre una terraza de madera, con el cielo naranja del atardecer y las montañas al fondo">
+            </figure>
+            <div class="plan__detalle">
+              <p class="plan__indice">04/05</p>
+              <ul class="plan__galeria">
+                <li><img src="assets/img/content/cielo-estrellado.webp" width="181" height="118" loading="lazy" alt="Cielo estrellado sobre las copas de los árboles de la reserva"></li>
+                <li><img src="assets/img/content/domos-ladera.webp" width="181" height="118" loading="lazy" alt="Domos blancos repartidos en la ladera verde, entre árboles"></li>
+                <li><img src="assets/img/content/interior-domo.webp" width="181" height="118" loading="lazy" alt="Interior del domo, con la cama tendida y mesas de noche a los lados"></li>
+              </ul>
+              <h2 class="plan__titulo">Plan pasadía en familia</h2>
+              <ul class="lista-marcada">
+                <li>Domo, jacuzzi y baño privado, con 2 camas adicionales</li>
+                <li>Almuerzos</li>
+                <li>Malla catamarán</li>
+                <li>Fogata</li>
+                <li>Senderismo ecológico</li>
+                <li>Parqueadero</li>
+              </ul>
+            </div>
+          </li>
 
-				<div class="carousel-item slide3">
-					<div class="container">
-						<div class="uno">
-							<img src="IMG/imagen1.jpg" alt="">
-						</div>
-						<div class="dos">
-							<div>
-								<div>
-									<h3>03/05</h3>
-								</div>
-								<div>
-									<div>
-										<img src="IMG/imagen2.jpg" alt="">
-									</div>
-									<div>
-										<img src="IMG/imagen3.jpg" alt="">
-									</div>
-									<div>
-										<img src="IMG/imagen4.jpg" alt="">
-									</div>
-								</div>
-							</div>
-							<div>
-								<div>
-									<h2>Plan pasadia pareja</h2>
-									<!--
-									<div>
-										<h5>Semana y fin de Semana $250.000 10 AM - 5 PM</h5>
-									</div>
-									-->
-								</div>
-								<ul>
-									<li>Domo, Jacuzzi y baño privado</li>
-									<li>Almuerzos</li>
-									<li>Malla catamarán</li>
-									<li>Fogata</li>
-									<li>Senderismo ecológico</li>
-									<li>Parqueadero</li>
-								</ul>
-								<a href="https://google.com">RESERVAR</a>
-							</div>
-						</div>
-					</div>
-				</div>
+          <li class="plan" role="group" aria-roledescription="diapositiva" aria-label="Plan 5 de 5" data-carrusel-diapositiva>
+            <figure class="plan__figura">
+              <img src="assets/img/content/domo-atardecer.webp" width="727" height="800" loading="lazy" alt="Domo con jacuzzi sobre una terraza de madera, con el cielo naranja del atardecer y las montañas al fondo">
+            </figure>
+            <div class="plan__detalle">
+              <p class="plan__indice">05/05</p>
+              <ul class="plan__galeria">
+                <li><img src="assets/img/content/cielo-estrellado.webp" width="181" height="118" loading="lazy" alt="Cielo estrellado sobre las copas de los árboles de la reserva"></li>
+                <li><img src="assets/img/content/domos-ladera.webp" width="181" height="118" loading="lazy" alt="Domos blancos repartidos en la ladera verde, entre árboles"></li>
+                <li><img src="assets/img/content/interior-domo.webp" width="181" height="118" loading="lazy" alt="Interior del domo, con la cama tendida y mesas de noche a los lados"></li>
+              </ul>
+              <h2 class="plan__titulo">Plan pareja en cabaña</h2>
+              <ul class="lista-marcada">
+                <li>Cabaña con baño privado</li>
+                <li>Televisor</li>
+                <li>Desayunos</li>
+                <li>Senderismo ecológico</li>
+                <li>Parqueadero</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
-				<div class="carousel-item slide4">
-					<div class="container">
-						<div class="uno">
-							<img src="IMG/imagen1.jpg" alt="">
-						</div>
-						<div class="dos">
-							<div>
-								<div>
-									<h3>04/05</h3>
-								</div>
-								<div>
-									<div>
-										<img src="IMG/imagen2.jpg" alt="">
-									</div>
-									<div>
-										<img src="IMG/imagen3.jpg" alt="">
-									</div>
-									<div>
-										<img src="IMG/imagen4.jpg" alt="">
-									</div>
-								</div>
-							</div>
-							<div>
-								<div>
-									<h2>Plan pasadia familiar</h2>
-									<!--
-									<div>
-										<h5>Semana y fin de Semana $350.000 10 AM - 5 PM</h5>
-									</div>
-									-->
-								</div>
-								<ul>
-									<li>Domo, Jacuzzi y baño privado + 2 Camas adicionales</li>
-									<li>Almuerzos</li>
-									<li>Malla catamarán</li>
-									<li>Fogata</li>
-									<li>Senderismo ecológico</li>
-									<li>Parqueadero</li>
-								</ul>
-								<a href="https://google.com">RESERVAR</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="carousel-item slide5">
-					<div class="container">
-						<div class="uno">
-							<img src="IMG/imagen1.jpg" alt="">
-						</div>
-						<div class="dos">
-							<div>
-								<div>
-									<h3>04/05</h3>
-								</div>
-								<div>
-									<div>
-										<img src="IMG/imagen2.jpg" alt="">
-									</div>
-									<div>
-										<img src="IMG/imagen3.jpg" alt="">
-									</div>
-									<div>
-										<img src="IMG/imagen4.jpg" alt="">
-									</div>
-								</div>
-							</div>
-							<div>
-								<div>
-									<h2>Plan pareja cabaña</h2>
-									<div>
-										<h5>Semana y fin de Semana $180.000 3PM - 2 PM</h5>
-									</div>
-								</div>
-								<ul>
-									<li>Televisor</li>
-									<li>Baño privado </li>
-									<li>Desayunos</li>
-									<li>Senderismo ecológico</li>
-									<li>Parqueadero</li>
-								</ul>
-								<a href="https://google.com">RESERVAR</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</main>
-
-	<!-- Footer -->
-
-	<footer>
-		<div>
-		</div>
-		<div>
-			<div>
-				<a href="https://">
-					<img src="IMG/icons8-whatsapp.svg" alt="">
-				</a>
-			</div>
-			<div>
-				<a href="https://">
-					<img src="IMG/icons8-instagram.svg" alt="">
-				</a>
-			</div>
-			<div>								
-				<a href="https://">
-					<img src="IMG/icons8-facebook.svg" alt="">
-				</a>
-			</div>
-		</div>
-	</footer>
-
-	<!-- JS -->
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<script src="	">
-	</script>
+  <footer class="pie">
+    <div class="contenedor pie__interior">
+      <p class="pie__marca">GlampEase · Reserva del Ruiz</p>
+      <nav aria-label="Pie de página">
+        <ul class="pie__lista">
+          <li><a class="pie__enlace" href="index.html">Planes</a></li>
+          <li><a class="pie__enlace" href="la-reserva.html">La reserva</a></li>
+          <li><a class="pie__enlace" href="membresia.html">Membresía</a></li>
+        </ul>
+      </nav>
+      <p class="pie__legal">© 2026 GlampEase</p>
+    </div>
+    <p class="site-credit">
+      Built by <a href="https://wib.digital" rel="noopener">wib.digital</a> —
+      <a href="https://www.fiverr.com/pablonietop" rel="noopener">hire me on Fiverr</a>
+    </p>
+  </footer>
 </body>
 </html>

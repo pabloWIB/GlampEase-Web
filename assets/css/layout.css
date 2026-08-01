@@ -1,0 +1,281 @@
+/* ==========================================================================
+   layout.css — contenedores, cabecera, navegación, pie, esqueleto de página
+   ========================================================================== */
+
+/* --- Contenedores ------------------------------------------------------- */
+
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding-inline: var(--espacio-3);
+}
+
+.pagina {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.pagina > main {
+  flex: 1 0 auto;
+}
+
+.seccion {
+  padding-block: var(--espacio-6);
+}
+
+.seccion__cierre {
+  margin-top: var(--espacio-6);
+}
+
+/* --- Cabecera ----------------------------------------------------------- */
+
+.cabecera {
+  position: relative;
+  z-index: 10;
+  background: var(--color-acento);
+}
+
+.cabecera__interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  min-height: 72px;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  min-height: var(--alto-tactil);
+  text-decoration: none;
+}
+
+.marca__sello {
+  width: 36px;
+  height: 36px;
+}
+
+.marca__nombre {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-lg);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* --- Navegación --------------------------------------------------------- */
+
+.nav-boton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--alto-tactil);
+  height: var(--alto-tactil);
+  margin-right: calc(var(--espacio-2) * -1);
+  color: var(--color-texto);
+}
+
+.nav-boton__cerrar {
+  display: none;
+}
+
+.nav-boton[aria-expanded="true"] .nav-boton__abrir {
+  display: none;
+}
+
+.nav-boton[aria-expanded="true"] .nav-boton__cerrar {
+  display: block;
+}
+
+.nav__lista {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-4);
+}
+
+.nav__enlace {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alto-tactil);
+  padding-inline: var(--espacio-1);
+  font-size: var(--texto-sm);
+  text-decoration: none;
+}
+
+.nav__enlace::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: var(--espacio-1);
+  width: 0;
+  height: 1px;
+  background: var(--color-texto);
+  transition: width var(--transicion);
+}
+
+.nav__enlace:hover::after,
+.nav__enlace:focus-visible::after,
+.nav__enlace[aria-current="page"]::after {
+  width: calc(100% - var(--espacio-2));
+}
+
+/* Menú desplegable: solo cuando el JS está disponible. Sin JS la lista de
+   enlaces queda visible bajo la marca y el sitio sigue siendo navegable. */
+[data-js="on"] .nav-boton {
+  display: inline-flex;
+}
+
+[data-js="on"] .nav {
+  position: fixed;
+  inset: 72px 0 0;
+  display: none;
+  padding: var(--espacio-5) var(--espacio-3);
+  background: var(--color-acento);
+}
+
+[data-js="on"] .nav--abierto {
+  display: block;
+}
+
+[data-js="on"] .nav__lista {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--espacio-2);
+  text-align: center;
+}
+
+[data-js="on"] .nav__enlace {
+  justify-content: center;
+  font-size: var(--texto-md);
+}
+
+[data-js="on"] .nav__enlace::after {
+  display: none;
+}
+
+[data-js="on"] .nav__enlace[aria-current="page"] {
+  font-weight: 700;
+}
+
+.sin-scroll {
+  overflow: hidden;
+}
+
+/* --- Encabezado de página interior -------------------------------------- */
+
+.encabezado-pagina {
+  padding-block: var(--espacio-5) var(--espacio-6);
+  background: var(--color-acento);
+}
+
+.encabezado-pagina__entrada {
+  margin-top: var(--espacio-3);
+  font-size: var(--texto-md);
+}
+
+/* --- Pie ---------------------------------------------------------------- */
+
+.pie {
+  margin-top: var(--espacio-7);
+  padding-block: var(--espacio-5);
+  border-top: 1px solid var(--color-borde);
+}
+
+.pie__interior {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.pie__marca {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-md);
+}
+
+.pie__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2) var(--espacio-4);
+}
+
+.pie__enlace {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alto-tactil);
+  font-size: var(--texto-sm);
+  text-decoration: none;
+}
+
+.pie__enlace:hover {
+  text-decoration: underline;
+}
+
+.pie__legal {
+  color: var(--color-texto-suave);
+  font-size: var(--texto-xs);
+}
+
+/* --- Media queries ------------------------------------------------------ */
+
+@media (min-width: 768px) {
+  .contenedor {
+    padding-inline: var(--espacio-5);
+  }
+
+  .seccion {
+    padding-block: var(--espacio-7);
+  }
+
+  [data-js="on"] .nav-boton {
+    display: none;
+  }
+
+  [data-js="on"] .nav {
+    position: static;
+    display: block;
+    padding: 0;
+    background: none;
+  }
+
+  [data-js="on"] .nav__lista {
+    flex-direction: row;
+    gap: var(--espacio-4);
+  }
+
+  [data-js="on"] .nav__enlace {
+    font-size: var(--texto-sm);
+  }
+
+  [data-js="on"] .nav__enlace::after {
+    display: block;
+  }
+
+  .pie__interior {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .encabezado-pagina {
+    padding-block: var(--espacio-6) var(--espacio-7);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cabecera__interior {
+    min-height: 88px;
+  }
+
+  .marca__nombre {
+    font-size: var(--texto-xl);
+  }
+
+  .nav__lista {
+    gap: var(--espacio-6);
+  }
+}

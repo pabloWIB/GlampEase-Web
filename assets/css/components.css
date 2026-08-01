@@ -1,0 +1,187 @@
+/* ==========================================================================
+   components.css — botones, tarjetas, listas, prosa
+   ========================================================================== */
+
+/* --- Botones y llamadas a la acción ------------------------------------- */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-2);
+  min-height: var(--alto-tactil);
+  padding: var(--espacio-2) var(--espacio-4);
+  border: 1px solid var(--color-oscuro);
+  border-radius: var(--radio-sm);
+  background: var(--color-oscuro);
+  color: #ffffff;
+  font-size: var(--texto-sm);
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color var(--transicion), border-color var(--transicion),
+    color var(--transicion), transform var(--transicion);
+}
+
+.boton:hover {
+  background: var(--color-oscuro-hover);
+  border-color: var(--color-oscuro-hover);
+}
+
+.boton:active {
+  transform: translateY(1px);
+}
+
+.boton[aria-disabled="true"],
+.boton:disabled {
+  background: var(--color-borde);
+  border-color: var(--color-borde);
+  color: var(--color-texto-suave);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.boton--claro {
+  background: transparent;
+  color: var(--color-texto);
+}
+
+.boton--claro:hover {
+  background: var(--color-oscuro);
+  color: #ffffff;
+}
+
+/* --- Tarjetas ----------------------------------------------------------- */
+
+.tarjeta {
+  padding: var(--espacio-4);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  background: var(--color-fondo);
+}
+
+.tarjeta__titulo {
+  margin-bottom: var(--espacio-2);
+  font-size: var(--texto-lg);
+}
+
+.rejilla-tarjetas {
+  display: grid;
+  gap: var(--espacio-4);
+  grid-template-columns: 1fr;
+}
+
+/* --- Listas ------------------------------------------------------------- */
+
+.lista-marcada {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+  max-width: var(--medida-lectura);
+}
+
+.lista-marcada li {
+  position: relative;
+  padding-left: var(--espacio-4);
+  font-size: var(--texto-sm);
+}
+
+.lista-marcada li::before {
+  content: "";
+  position: absolute;
+  top: 0.7em;
+  left: 0;
+  width: 8px;
+  height: 1px;
+  background: var(--color-oscuro);
+}
+
+.lista-numerada {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  max-width: var(--medida-lectura);
+  padding-left: var(--espacio-4);
+  list-style: decimal;
+}
+
+/* --- Prosa -------------------------------------------------------------- */
+
+.prosa {
+  max-width: var(--medida-lectura);
+}
+
+.prosa > * + * {
+  margin-top: var(--espacio-3);
+}
+
+.prosa h2 {
+  margin-top: var(--espacio-6);
+}
+
+.prosa h3 {
+  margin-top: var(--espacio-5);
+}
+
+.prosa p {
+  color: var(--color-texto-suave);
+}
+
+/* --- Preguntas frecuentes ----------------------------------------------- */
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+  max-width: var(--medida-lectura);
+}
+
+.faq__pregunta {
+  font-size: var(--texto-md);
+}
+
+.faq__respuesta {
+  margin-top: var(--espacio-1);
+  color: var(--color-texto-suave);
+}
+
+/* --- Dato destacado ----------------------------------------------------- */
+
+.dato {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--espacio-2);
+  padding: var(--espacio-2) var(--espacio-3);
+  border: 1px solid var(--color-oscuro);
+  border-radius: var(--radio-sm);
+}
+
+.dato__valor {
+  font-family: var(--fuente-titulo);
+  font-size: var(--texto-lg);
+  font-weight: 700;
+}
+
+.dato__etiqueta {
+  font-size: var(--texto-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* --- Media queries ------------------------------------------------------ */
+
+@media (min-width: 768px) {
+  .rejilla-tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tarjeta {
+    padding: var(--espacio-5);
+  }
+}
+
+@media (min-width: 1024px) {
+  .rejilla-tarjetas--tres {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
