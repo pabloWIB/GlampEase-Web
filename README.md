@@ -101,10 +101,10 @@ python -m http.server 4173
 
 Static hosting, no build command and no output directory: upload the repository
 root as it is. The absolute URLs in `sitemap.xml`, `robots.txt`, the canonical
-tags and the Open Graph tags point to `https://glampease.wib.digital`; change
+tags and the Open Graph tags point to `https://pablowib.github.io/GlampEase-Web`; change
 them if the site is deployed elsewhere.
 
-`404.html` is served automatically by hosts that look for that filename, Vercel
+`404.html` is served automatically by hosts that look for that filename, GitHub Pages
 and Netlify among them.
 
 ## Author
